@@ -1,4 +1,4 @@
-package com.cruddemo;
+package com.cruddemo.persistence;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

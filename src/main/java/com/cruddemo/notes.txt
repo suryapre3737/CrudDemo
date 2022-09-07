@@ -1,0 +1,8 @@
+1. CRUD MVC
+2. H2 integration
+3. Actuators
+4. JPA Repository
+5. Bean scopes (singleton, prototype, session, request)
+6. Application context, Bean factory, Object factory, Look up
+7. Lombok
+8. Swagger : UI Integration, documentation

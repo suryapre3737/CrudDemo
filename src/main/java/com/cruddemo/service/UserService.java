@@ -1,6 +1,11 @@
-package com.cruddemo;
+package com.cruddemo.service;
 
+import com.cruddemo.model.UserBO;
+import com.cruddemo.persistence.UserDto;
+import com.cruddemo.persistence.UserRepository;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +15,9 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    ObjectFactory<WeatherService> objectFactory;
 
     public UserDto getUser(Long id) {
         return userRepository.findById(id).orElseThrow();
@@ -37,5 +45,14 @@ public class UserService {
         userDto.setLastName(userBO.getLastName());
         userDto.setEmail(userBO.getEmail());
         return userRepository.save(userDto);
+    }
+
+    public String getWeatherInfoFromWeatherAPI() {
+        return getWeatherServiceBean().getTodaysWeatherInfo();
+    }
+
+    @Lookup
+    public WeatherService getWeatherServiceBean(){
+        return null;
     }
 }

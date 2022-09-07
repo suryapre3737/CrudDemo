@@ -1,4 +1,4 @@
-package com.cruddemo;
+package com.cruddemo.model;
 
 import lombok.*;
 

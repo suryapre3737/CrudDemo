@@ -1,10 +1,12 @@
-package com.cruddemo;
+package com.cruddemo.controller;
 
+import com.cruddemo.service.UserService;
+import com.cruddemo.model.UserBO;
+import com.cruddemo.persistence.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -40,5 +42,12 @@ public class CrudController {
         return "User deleted successfully having ID : "+id;
     }
 
+    @GetMapping(path = "weather_info")
+    public Object getWeatherInfo() throws InterruptedException {
+        String response1 = userService.getWeatherInfoFromWeatherAPI();
+        Thread.sleep(1000);
+        String response2 = userService.getWeatherInfoFromWeatherAPI();
+        return Arrays.asList(response1,response2);
+    }
 
 }
